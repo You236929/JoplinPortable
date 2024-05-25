@@ -40,15 +40,16 @@ jobs:
       timeout-minutes: 10
 
     - name: Run script
+      shell: bash
       run: |
         #ls -lh /pa-build
-        sudo mkdir -p /artifacts
+        mkdir -p /artifacts
         find / \
         -type f \
         -name "*.paf.exe" \
         -exec cp {} /artifacts \;
+        # /__w/xxxx
 
-        
         exit 0
 
     - name: Upload artifacts
