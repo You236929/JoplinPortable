@@ -39,7 +39,14 @@ jobs:
           Other/Update/Update.ps1 -InfraDir /pa-build
       timeout-minutes: 10
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: /pa-build
+    - name: Run script
+      run: |
+        ls -lh /pa-build
+        find / \
+        -type f \
+        -name "*.paf.exe"
+
+    # - name: Upload artifacts
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     path: /pa-build
