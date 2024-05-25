@@ -41,12 +41,17 @@ jobs:
 
     - name: Run script
       run: |
-        ls -lh /pa-build
+        #ls -lh /pa-build
+        sudo mkdir -p /artifacts
         find / \
         -type f \
-        -name "*.paf.exe"
+        -name "*.paf.exe" \
+        -exec cp {} /artifacts \;
 
-    # - name: Upload artifacts
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     path: /pa-build
+        
+        exit 0
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: /artifacts
