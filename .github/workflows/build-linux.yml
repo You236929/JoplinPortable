@@ -44,7 +44,8 @@ jobs:
       run: |
         #ls -lh /pa-build
         mkdir -p /artifacts
-        find / \
+        ls -lh /__w/
+        find /__w/ \
         -type f \
         -name "*.paf.exe" \
         -exec cp {} /artifacts \;
