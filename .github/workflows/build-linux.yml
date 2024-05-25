@@ -6,6 +6,7 @@
 name: build-linux
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - workflow/*
@@ -37,3 +38,8 @@ jobs:
           /usr/bin/pwsh -ExecutionPolicy ByPass \
           Other/Update/Update.ps1 -InfraDir /pa-build
       timeout-minutes: 10
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: /pa-build
